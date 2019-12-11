@@ -1,0 +1,35 @@
+{
+  "name": "import-sort-style-chardy",
+  "version": "1.0.0",
+  "description": "An import-sort style that sorts by module",
+  "main": "lib/index.js",
+  "repository": "git@github.com:chardydev/import-sort-style-chardy.git",
+  "author": "Chris Hardy <chris@chrishardy.net>",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "npm run build:ts",
+    "build": "yarn lint && yarn test:ci && yarn build:ts",
+    "build:ts": "tsc -p src",
+    "lint": "yarn lint:es && yarn lint:imports && yarn lint:prettier",
+    "lint:es": "eslint \"src/**/*\"",
+    "lint:imports": "import-sort --list-different src/**/*.ts",
+    "lint:prettier": "prettier -l src/**/*",
+    "test:ci": "CI=true yarn test",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "eslint-config-prettier": "^6.7.0",
+    "import-sort": "^6.0.0",
+    "import-sort-cli": "^6.0.0",
+    "import-sort-parser": "^6.0.0",
+    "import-sort-parser-babylon": "^6.0.0",
+    "import-sort-style": "^6.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
+  }
+}
